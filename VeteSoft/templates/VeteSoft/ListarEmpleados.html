@@ -1,0 +1,69 @@
+{% extends 'Plantilla.html' %}
+{% block Formularios %}
+
+<h2>Listado de Medicos</h2>
+
+<table class="table table-dark">
+    <tr>
+        <th>
+            Documento
+        </th>
+        <th>
+            Nombre
+        </th>
+        <th>
+            PrimerApellido
+        </th>
+        <th>
+            FechaRegistro
+        </th>
+        <th>
+            Genero
+        </th>
+        <th>
+            Estado
+        </th>
+        <th>
+            Editar
+        </th>
+        <th>
+            Borrar
+        </th>
+    </tr>
+    {% for medico in object_list %}
+    <tr>
+        <td>
+            {{ medico.Documento }}
+        </td>
+        <td>
+            {{ medico.Nombres }}
+        </td>
+        <td>
+            {{ medico.PrimerApellido }}
+        </td>
+        <td>
+            {{ medico.FechaRegistro }}
+        </td>
+        <td>
+            {{ medico.Genero }}
+        </td>
+        <td>
+            {{ medico.FechaNacimiento }}
+        </td>      
+        <td>
+            <a href="{% url 'ActualizarMedico' medico.id %}">Editar</a>
+            
+        </td>
+        <td>
+            <a href="{% url 'EliminarMedico' medico.id %}">Borrar</a>
+        </td>
+        
+    </tr>
+    {% endfor%}
+
+</table>
+
+<p><a href="{% url 'RegistroMedico' %}" class="boton btn" >Ingresar un nuevo medico</a></p>
+
+</div>  
+{% endblock %}

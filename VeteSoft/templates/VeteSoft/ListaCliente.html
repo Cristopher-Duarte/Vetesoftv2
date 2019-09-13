@@ -1,0 +1,69 @@
+{% extends 'Plantilla.html' %}
+{% block Formularios %}
+
+<h2>Listado de Medicos</h2>
+
+<table class="table table-dark">
+    <tr>
+        <th>
+            Documento
+        </th>
+        <th>
+            Nombre
+        </th>
+        <th>
+            PrimerApellido
+        </th>
+        <th>
+            FechaRegistro
+        </th>
+        <th>
+            Genero
+        </th>
+        <th>
+            Estado
+        </th>
+        <th>
+            Editar
+        </th>
+        <th>
+            Borrar
+        </th>
+    </tr>
+    {% for cliente in object_list %}
+    <tr>
+        <td>
+            {{ cliente.Documento }}
+        </td>
+        <td>
+            {{ cliente.Nombres }}
+        </td>
+        <td>
+            {{ cliente.PrimerApellido }}
+        </td>
+        <td>
+            {{ cliente.FechaRegistro }}
+        </td>
+        <td>
+            {{ cliente.Genero }}
+        </td>
+        <td>
+            {{ cliente.FechaNacimiento }}
+        </td>      
+        <td>
+            <a href="#">Editar</a>
+            
+        </td>
+        <td>
+            <a href="#">Borrar</a>
+        </td>
+        
+    </tr>
+    {% endfor%}
+
+</table>
+
+<p><a href="{% url 'RegistroCliente' %}" class="boton btn" >Agregar nuevo Cliente</a></p>
+
+</div>  
+{% endblock %}

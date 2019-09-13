@@ -1,0 +1,15 @@
+{% extends 'Plantilla.html' %}
+{% block Formularios %}
+
+
+<form action="#" method="POST">
+    {% csrf_token %}
+    
+    {{ form.as_p }}
+    
+    <button type="submit" >Actualizar Datos</button>
+    </form>
+
+
+
+{% endblock %}

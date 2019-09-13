@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="{% static 'css/Principal.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+</head>
+<body>
+    <div class="container" id="Principal">
+        <div class="row" id="top">
+            <div class="col-md-3" id="top-l">
+                <img src="Imagen/ico_logo.png" width="100px" height="100px">
+                <img src="Imagen/Eslogan.png" width="200px" height="100px" alt="">
+            </div>
+
+            <div class="col-md-9" id="top-r">
+                <div id="top-r1">
+                    <label for="">Bienvenido(a) <strong>{{ user.username }}</strong></label>
+                    <p>
+                        <a href="{% url 'logout' %}"> <button id="Close"  onclick="cerrar()" class="botonTopL btn">Cerrar Sesion</button></a>
+                        <button id="Config"  class="botonTopL btn">Configuraciones</button>
+                    </p>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="row" id="Center">
+            <div class="col-md-3">
+                <p><button id="inicio" class="boton btn" >INICIO</button></p> 
+                <p><button id="ApCt" class="boton btn" >APARTAR CITAS</button></p>
+                <p><button id="ReCl" class="boton btn" >RESULTADOS CLINICOS</button></p>
+                <a href="{% url 'ListaMedico' %}"><p><button id="ReM" class="boton btn" >MEDICOS</button></p></a>
+                <a href="{% url 'RegistroCliente' %}"><p><button id="ReC" class="boton btn" >REGISTRAR CLIENTES</button></p></a>
+                <p><button id="ReA" class="boton btn" >REGISTRAR ADMINISTRADOR</button></p>
+                <p><button id="Con" class="boton btn" >CONTACTENOS</button></p>
+    
+
+            </div>
+
+            <div class="col-md-9">
+                {% block Formularios %}
+
+                {% endblock %}
+            </div>
+
+        </div>
+
+        <div class="row" id="Bottom">
+
+        </div>
+    </div>
+
+ 
+    
+</body>
+</html>

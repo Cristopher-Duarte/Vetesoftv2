@@ -1,0 +1,17 @@
+{% extends 'principal.html' %}
+{% block principal %}
+
+<h2>Iniciar sesion</h2>
+<form action="{% url 'login' %}" method="POST">
+{% csrf_token %}
+
+{{ form.as_p }}
+<div>
+    <a href="">¿Olvido su contraseña?</a>
+</div>
+<div>
+    <button class="button" type="submit">Iniciar</button>
+</div>
+</form>
+
+{% endblock %}

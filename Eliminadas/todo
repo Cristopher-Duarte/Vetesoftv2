@@ -1,0 +1,6 @@
+class RegistroMedico(CreateView):
+    model = Medico
+    fields = ["Documento","Nombres","PrimerApellido","SegundoApellido","FechaNacimiento","Genero","Celular","Direccion","FechaRegistro","Estado"]
+    template_name = 'VeteSoft/RegistroMedico.html'
+    success_url = reverse_lazy('ListaMedico')
+  
