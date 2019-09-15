@@ -172,3 +172,37 @@ class RegistroCitaForm(forms.ModelForm):
            
         }
 
+
+
+class RegistroMascotasForm(forms.ModelForm):
+    class Meta:
+
+        model=Mascotas
+        fields=[
+            'Nombre',
+            'FechaNacimiento',
+            'Genero',
+            'Cliente',
+            'Raza',
+        ]
+
+        labels={
+            'Nombre'            :    'Nombre',
+            'FechaNacimiento'   :    'FechaNacimiento',
+            'Genero'            :    'Genero',
+            'Cliente'           :    'Cliente',
+            'Raza'              :    'Raza',
+        }
+        
+        
+        widgets={
+            'Nombre'            : forms.TextInput(attrs={'class':'form-control'}),        
+            'FechaNacimiento'   : forms.TextInput(attrs={'class':'form-control'}), 
+            'Genero'            : forms.TextInput(attrs={'class':'form-control'}), 
+            'Cliente'           : forms.TextInput(attrs={'class':'form-control'}),
+            'Raza'              : forms.Select(attrs={'class':'form-control'}), 
+           
+        }
+
+
+

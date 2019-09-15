@@ -54,3 +54,12 @@ class RegistroCitas(CreateView):
     model=Citas
     form_class=RegistroCitaForm
     template_name ='VeteSoft/RegistroCitas.html'
+
+class RegistroMascotas(CreateView):
+    model=Mascotas
+    form_class=RegistroMascotasForm
+    template_name ='VeteSoft/RegistrarMascotas.html'
+    
+
+    
+

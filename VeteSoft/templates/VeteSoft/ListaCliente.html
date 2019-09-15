@@ -1,7 +1,7 @@
-{% extends 'Plantilla.html' %}
+{% extends 'Admin.html' %}
 {% block Formularios %}
 
-<h2>Listado de Medicos</h2>
+<h2>Listado de Clientes</h2>
 
 <table class="table table-dark">
     <tr>
@@ -21,7 +21,11 @@
             Genero
         </th>
         <th>
-            Estado
+            FechaNacimiento
+        </th>
+
+        <th>
+            Mascota
         </th>
         <th>
             Editar
@@ -29,6 +33,8 @@
         <th>
             Borrar
         </th>
+
+
     </tr>
     {% for cliente in object_list %}
     <tr>
@@ -49,7 +55,13 @@
         </td>
         <td>
             {{ cliente.FechaNacimiento }}
-        </td>      
+        </td>
+
+        <td>
+
+            <button class="btn" ><a href="{% url 'RegistroMascotas' cliente.pk %} "> Agragar Mascotas</a></button>
+        </td>
+
         <td>
             <a href="#">Editar</a>
             

@@ -82,7 +82,7 @@ class Mascotas(models.Model):
     Nombre = models.CharField(max_length=45)
     FechaNacimiento = models.DateField()
     Genero = models.CharField(max_length=45,default='')
-    Cliente = models.ForeignKey('Cliente', on_delete=models.CASCADE, null=True)
+    Cliente = models.ForeignKey('Cliente',on_delete=models.CASCADE)
     Raza = models.ForeignKey('Raza', on_delete=models.CASCADE, null=True)
     
 
@@ -99,7 +99,7 @@ class HistoriaClinica(models.Model):
 
 
 class Citas(models.Model):
-    FechaCita = models.DateField(auto_now_add=True, null=True)
+    FechaCita = models.DateField()
     HoraCita = models.TimeField()
     Medico = models.ForeignKey('Medico', on_delete=models.CASCADE)
     Mascotas = models.ForeignKey('Mascotas', on_delete=models.CASCADE)

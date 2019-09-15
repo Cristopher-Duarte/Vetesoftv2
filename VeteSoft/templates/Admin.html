@@ -2,7 +2,8 @@
 
 {% block Botones %}
     <a href="{% url 'ListaMedico' %}"><p><button  class="boton btn" >Mostrar Medicos</button></p></a>
-    <a href="{% url 'ListaCLiente' %}"><p><button class="boton btn" >Mostrar Clientes</button></p></a>
+    <p><button class="boton btn" ><a href="{% url 'ListaCLiente' %}">Mostrar Clientes</a></button></p>
+    
     <a><p><button class="boton btn" >Mostrar Mascotas</button></p></a>
 {% endblock %}
 

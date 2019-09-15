@@ -1,0 +1,27 @@
+{% extends 'Plantilla.html' %}
+
+{% block Botones %}
+    <a href="{% url 'ListaMedico' %}"><p><button  class="boton btn" >Mostrar Medicos</button></p></a>
+    <p><button class="boton btn" ><a href="{% url 'ListaCLiente' %}">Mostrar Clientes</a></button></p>
+
+    <a><p><button class="boton btn" >Mostrar Mascotas</button></p></a>
+{% endblock %}
+
+{% block Formularios %}
+    <form action="#" method="POST">
+
+        {% csrf_token %}
+            
+         {% if %}   
+            
+        {{ form.as_p }}
+        
+    
+
+
+        
+        <button type="submit" class="boton btn">Enviar</button> 
+    </form>
+
+
+{% endblock %}
