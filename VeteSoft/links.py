@@ -17,6 +17,7 @@ urlpatterns =[
     path('MedicosList/',login_required(MedicoVer.as_view()),name='ListaMedico'),
     path('RegistroMedico/',login_required(RegistroMedico.as_view()), name='RegistroMedico'),
     path('RegistroCliente/',login_required(RegistroCliente.as_view()), name='RegistroCliente'),
+    path('RegistroCitas/', login_required(RegistroCitas.as_view(), name="RegistroCitas")),
     path('Medico/eliminar/Medico/<int:pk>',login_required(MedicoDelet.as_view()),name='EliminarMedico'),
     path('Medico/editar/Medico/<int:pk>',login_required(MedicoActua.as_view()),name='ActualizarMedico'),
     path('ClienteList/',login_required(ClienteList.as_view()),name='ListaCLiente'),

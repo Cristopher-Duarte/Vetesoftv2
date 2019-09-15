@@ -1,5 +1,14 @@
 {% extends 'Plantilla.html' %}
 
-{% block Formularios %}
+{% block Botones %}
+    <a href="{% url 'RegistroMedico' %}"><p><button  class="boton btn" >Mostrar Medicos</button></p></a>
+    <a href="{% url 'RegistroCliente' %}"><p><button class="boton btn" >Mostrar Clientes</button></p></a>
+    <a><p><button class="boton btn" >Mostrar Mascotas</button></p></a>
+{% endblock %}
 
+
+{% block Formularios %}
+   <form action="" method="post">
+       
+   </form>
 {% endblock %}

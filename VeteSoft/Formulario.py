@@ -145,3 +145,30 @@ class ActualizarCliente(forms.ModelForm):
             'Celular'         : forms.TextInput(attrs={'class':'form-control'}), 
             'Direccion'       : forms.TextInput(attrs={'class':'form-control'}), 
         }
+
+class RegistroCitaForm(forms.ModelForm):
+    class Meta:
+        model = Citas
+
+        fields =[
+            'FechaCita',
+            'HoraCita',
+            'Medico',
+            'Mascotas',
+        ]
+
+        labels={
+            'FechaCita'  : 'FechaCita',
+            'HoraCita'   :  'HoraCita',
+            'Medico'     :    'Medico',
+            'Mascotas'   :  'Mascotas',
+        }
+
+        widgets={
+            'FechaCita' : forms.TextInput(attrs={'class':'form-control'}),        
+            'HoraCita'  : forms.TextInput(attrs={'class':'form-control'}), 
+            'Medico'    : forms.Select(attrs={'class':'form-control'}), 
+            'Mascotas'  : forms.Select(attrs={'class':'form-control'}), 
+           
+        }
+

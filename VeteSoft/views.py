@@ -49,3 +49,8 @@ class RegistroCliente(CreateView):
 class ClienteList(ListView):
     model = Cliente 
     template_name = 'VeteSoft/ListaCliente.html'
+
+class RegistroCitas(CreateView):
+    model=Citas
+    form_class=RegistroCitaForm
+    template_name ='VeteSoft/RegistroCitas.html'
