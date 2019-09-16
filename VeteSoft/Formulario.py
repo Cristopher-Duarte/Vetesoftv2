@@ -199,7 +199,7 @@ class RegistroMascotasForm(forms.ModelForm):
             'Nombre'            : forms.TextInput(attrs={'class':'form-control'}),        
             'FechaNacimiento'   : forms.TextInput(attrs={'class':'form-control'}), 
             'Genero'            : forms.TextInput(attrs={'class':'form-control'}), 
-            'Cliente'           : forms.TextInput(attrs={'class':'form-control'}),
+            'Cliente'           : forms.Select(attrs={'class':'form-control'}),
             'Raza'              : forms.Select(attrs={'class':'form-control'}), 
            
         }

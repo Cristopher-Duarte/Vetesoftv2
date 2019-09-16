@@ -82,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME':'petsoft',
         'USER': 'root',
-        'PASSWORD': '1005012521',
+        'PASSWORD': 'cbn2016',
         'HOST': 'localhost',
     }
 }

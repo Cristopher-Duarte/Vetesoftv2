@@ -1,11 +1,4 @@
-{% extends 'Plantilla.html' %}
-
-{% block Botones %}
-    <a href="{% url 'ListaMedico' %}"><p><button  class="boton btn" >Mostrar Medicos</button></p></a>
-    <a href="{% url 'ListaCLiente' %}"><p><button class="boton btn" >Mostrar Clientes</button></p></a>
-    <a><p><button class="boton btn" >Mostrar Mascotas</button></p></a>
-{% endblock %}
-
+{% extends 'Admin.html' %}
 
 {% block Formularios %}
    <form action="" method="post">
