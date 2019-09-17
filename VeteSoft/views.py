@@ -90,6 +90,7 @@ def home (request):
     user = request.user
     if user.has_perm('VeteSoft.is_usuario'):
         return redirect(reverse('IndexUsuarios'))
+    
 
 @permission_required('VeteSoft.is_usuario')
 def Index_Usuario (request):
