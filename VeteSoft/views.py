@@ -39,7 +39,7 @@ class ClienteActua(UpdateView):
     success_url = reverse_lazy('ListaMedico')
 
 
-class RegistroCliente(CreateView):
+class RegistroCliente(View):
     model=Cliente
     form_class=RegistroClienteForm
     template_name ='VeteSoft/RegistroCliente.html'
