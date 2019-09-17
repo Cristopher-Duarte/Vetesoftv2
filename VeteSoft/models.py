@@ -113,6 +113,7 @@ class Citas(models.Model):
     Estado = models.BooleanField(null=True, default=True)
 
 
+
 class ExamenMascota(models.Model):
     Examen = models.ForeignKey('Examen', on_delete=models.CASCADE)
 

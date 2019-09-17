@@ -8,7 +8,7 @@ from .Formulario import *
 
 
 def Inicio(request):
-    return render(request,"VeteSoft/index.html")
+    return render(request,"VeteSoft/Administrador.html")
 
 class MedicoVer(ListView):
     model = Medico 
@@ -39,7 +39,7 @@ class ClienteActua(UpdateView):
     success_url = reverse_lazy('ListaMedico')
 
 
-class RegistroCliente(View):
+class RegistroCliente(CreateView):
     model=Cliente
     form_class=RegistroClienteForm
     template_name ='VeteSoft/RegistroCliente.html'
@@ -56,6 +56,7 @@ class RegistroCitas(CreateView):
     template_name ='VeteSoft/RegistroCitas.html'
 
 class RegistroMascotas(View):
+    
     def get(self, request,pk):
         
         form2 = RegistroMascotasForm
@@ -69,7 +70,7 @@ class RegistroMascotas(View):
             llenar = form1.save(commit=False)
             llenar.Cliente = cliente
             llenar.save()
-            return render(request, 'VeteSoft/ListarMascotas.html', {'infomas':datosM})
+            return render(request,  'VeteSoft/ListarMascotas.html', {'infomas': datosM})
 
 
 class ListaMascotas(View):

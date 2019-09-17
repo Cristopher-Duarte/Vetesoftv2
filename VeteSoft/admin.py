@@ -15,5 +15,6 @@ admin.site.register(ExamenMascota)
 admin.site.register(DetalleCita)
 admin.site.register(ResultadoClinico)
 admin.site.register(Genero)
+admin.site.register(GeneroMascota)
 
 # Register your models here.

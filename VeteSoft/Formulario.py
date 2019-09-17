@@ -189,7 +189,7 @@ class RegistroMascotasForm(forms.ModelForm):
         labels={
             'Nombre'            :    'Nombre',
             'FechaNacimiento'   :    'FechaNacimiento',
-            'GeneroMascota'            :    'Genero',
+            'GeneroMascota'     :    'Genero',
             'Raza'              :    'Raza',
         }
         
