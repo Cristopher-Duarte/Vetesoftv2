@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>Historia Clinica</title>
+        <style type="text/css">
+            body {
+                font-weight: 200;
+                font-size: 14px;
+            }
+            .header {
+                font-size: 20px;
+                font-weight: 100;
+                text-align: center;
+                color: #007cae;
+            }
+            .title {
+                font-size: 22px;
+                font-weight: 100;
+               /* text-align: right;*/
+               padding: 10px 20px 0px 20px;  
+            }
+            .title span {
+                color: #007cae;
+            }
+            .details {
+                padding: 10px 20px 0px 20px;
+                text-align: left !important;
+                /*margin-left: 40%;*/
+            }
+            .hrItem {
+                border: none;
+                height: 1px;
+                /* Set the hr color */
+                color: #333; /* old IE */
+                background-color: #fff; /* Modern Browsers */
+            }
+            #cosa{
+                font-family: Georgia, 'Times New Roman', Times, serif
+
+            }
+        </style>
+    </head>
+    <body>
+        <div class='wrapper'>
+            <div class='header'>
+                <p class='title'>Historia Clinica de: {{ nombres }} </p>
+            </div>
+        <div>
+        <div class='details' id="cosa">
+            Nombres: {{ nombres }} <br/>
+            Primer Apellido : {{ primerapellido }} <br/>
+            Segundo Apellido: {{ segundoapellido }} <br/>
+            Fecha de Nacimiento: {{ fechanacimiento }} <br/>
+            Genero: {{ genero }} <br/>
+            Celular: {{ celular }} <br/>
+            Direccion: {{ direccion }} <br/>
+            Fecha de Registro: {{ fecharegistro }} <br/>
+           
+            <hr class='hrItem' />
+            
+            <hr class='hrItem' />
+        </div>
+    </div>
+    </body>
+</html>

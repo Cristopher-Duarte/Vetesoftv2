@@ -14,6 +14,7 @@ from VeteSoft import views
 
 
 
+
 urlpatterns =[
     path('Inicio',login_required(Inicio), name="incio"),
     path('',LoginView.as_view(template_name='accounts/login.html'),name='login'),
@@ -33,4 +34,9 @@ urlpatterns =[
 
 
     path('ListMascota/',login_required(ListaMascotas.as_view()),name='ListMascotas'),
+
+
+    #URl pdf
+    path('pdf/',login_required(GeneratePDF.as_view()),name="pdf"),
 ]
+
