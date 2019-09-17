@@ -9,6 +9,9 @@ from django.views.generic.detail import DetailView
 from django.contrib.auth.views import LoginView, LogoutView
 from .models import *
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.conf.urls import url
+from VeteSoft import views
+
 
 
 urlpatterns =[
@@ -23,6 +26,8 @@ urlpatterns =[
     path('Medico/eliminar/Medico/<int:pk>',login_required(MedicoDelet.as_view()),name='EliminarMedico'),
     path('Medico/editar/Medico/<int:pk>',login_required(MedicoActua.as_view()),name='ActualizarMedico'),
     path('ListaCLiente/',login_required(ClienteList.as_view()),name='ListaCLiente'),
+    path('Home/Users',login_required(home),name='Home'),
+    path('User/Index/',login_required(Index_Usuario),name='IndexUsuarios'),
 
 
 
