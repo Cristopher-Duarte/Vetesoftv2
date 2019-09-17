@@ -181,7 +181,7 @@ class RegistroMascotasForm(forms.ModelForm):
         fields=[
             'Nombre',
             'FechaNacimiento',
-            'Genero',
+            'GeneroMascota',
 
             'Raza',
         ]
@@ -189,7 +189,7 @@ class RegistroMascotasForm(forms.ModelForm):
         labels={
             'Nombre'            :    'Nombre',
             'FechaNacimiento'   :    'FechaNacimiento',
-            'Genero'            :    'Genero',
+            'GeneroMascota'            :    'Genero',
             'Raza'              :    'Raza',
         }
         
@@ -197,7 +197,7 @@ class RegistroMascotasForm(forms.ModelForm):
         widgets={
             'Nombre'            : forms.TextInput(attrs={'class':'form-control'}),        
             'FechaNacimiento'   : forms.TextInput(attrs={'class':'form-control'}), 
-            'Genero'            : forms.TextInput(attrs={'class':'form-control'}), 
+            'GeneroMascota'     : forms.Select(attrs={'class':'form-control'}), 
             'Raza'              : forms.Select(attrs={'class':'form-control'}), 
            
         }
