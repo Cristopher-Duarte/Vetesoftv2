@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import UpdateView, CreateView,ListView,DeleteView
+from django.views.generic import *
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView 
 from VeteSoft.models import *
@@ -55,11 +55,27 @@ class RegistroCitas(CreateView):
     form_class=RegistroCitaForm
     template_name ='VeteSoft/RegistroCitas.html'
 
-class RegistroMascotas(CreateView):
-    model=Mascotas
-    form_class=RegistroMascotasForm
-    template_name ='VeteSoft/RegistrarMascotas.html'
-    
+class RegistroMascotas(View):
+    def get(self, request,pk):
+        
+        form2 = RegistroMascotasForm
+        return render(request, 'VeteSoft/RegistrarMascotas.html', {'form': form2})
 
-    
+    def post(self, request, pk):
+        cliente = Cliente.objects.get(id=pk)
+        form1 = RegistroMascotasForm(request.POST)
+        datosM = Mascotas.objects.all()
+        if form1.is_valid():
+            llenar = form1.save(commit=False)
+            llenar.Cliente = cliente
+            llenar.save()
+            return render(request, 'VeteSoft/ListarMascotas.html', {'infomas':datosM})
 
+
+class ListaMascotas(View):
+    def get(self, request):
+        datosM = Mascotas.objects.all()
+        return render(request, 'VeteSoft/ListarMascotas.html', {'infomas':datosM})
+
+    def post(self, request):
+        pass

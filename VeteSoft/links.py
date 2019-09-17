@@ -23,4 +23,9 @@ urlpatterns =[
     path('Medico/eliminar/Medico/<int:pk>',login_required(MedicoDelet.as_view()),name='EliminarMedico'),
     path('Medico/editar/Medico/<int:pk>',login_required(MedicoActua.as_view()),name='ActualizarMedico'),
     path('ListaCLiente/',login_required(ClienteList.as_view()),name='ListaCLiente'),
+
+
+
+
+    path('ListMascota/',login_required(ListaMascotas.as_view()),name='ListMascotas'),
 ]
