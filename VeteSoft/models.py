@@ -13,6 +13,12 @@ class Genero(models.Model):
     def __str__(self):
         return self.Tipo
 
+class GeneroMascota(models.Model):
+    Tipo = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.Tipo
+
 
 class Cliente(models.Model):
     Documento = models.CharField(max_length=45)
@@ -81,7 +87,7 @@ class CentroVeterinario(models.Model):
 class Mascotas(models.Model):
     Nombre = models.CharField(max_length=45)
     FechaNacimiento = models.DateField()
-    Genero = models.CharField(max_length=45,default='')
+    GeneroMascota = models.ForeignKey('GeneroMascota',on_delete=models.CASCADE,null=True)
     Cliente = models.ForeignKey('Cliente',on_delete=models.CASCADE)
     Raza = models.ForeignKey('Raza', on_delete=models.CASCADE, null=True)
     
