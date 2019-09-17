@@ -87,9 +87,10 @@ class CentroVeterinario(models.Model):
 class Mascotas(models.Model):
     Nombre = models.CharField(max_length=45)
     FechaNacimiento = models.DateField()
-    GeneroMascota = models.ForeignKey('GeneroMascota',on_delete=models.CASCADE,null=True)
+    Genero = models.ForeignKey('GeneroMascota', on_delete=models.CASCADE,null=True)
     Cliente = models.ForeignKey('Cliente',on_delete=models.CASCADE)
     Raza = models.ForeignKey('Raza', on_delete=models.CASCADE, null=True)
+    Estado = models.BooleanField(null=True, default=True)
     
 
     def __str__(self):
