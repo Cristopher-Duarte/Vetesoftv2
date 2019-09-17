@@ -74,7 +74,7 @@ class RegistroMascotas(View):
             llenar = form1.save(commit=False)
             llenar.Cliente = cliente
             llenar.save()
-            return render(request,  'VeteSoft/ListarMascotas.html', {'infomas': datosM})
+            return redirect(reverse('ListMascotas'))
 
 
 class ListaMascotas(View):
