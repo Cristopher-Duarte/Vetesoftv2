@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import ugettext as _
 
 class Raza(models.Model):
     nombre = models.CharField(max_length=45)
@@ -46,6 +47,16 @@ class Medico(models.Model):
     Direccion = models.CharField(max_length=45)
     FechaRegistro = models.DateField(auto_now_add=True, null=True)
     Estado = models.BooleanField(null=True, default=True)
+        
+    class Meta:
+
+        permissions = (
+            ('is_usuario', _('Is Usuario')),
+            ('is_admin', _('Is Admin')),
+            ('is_doctor', _('Is Doctor'))
+
+        )      
+        
 
     def __str__(self):
         return self.Nombres
@@ -61,6 +72,8 @@ class Administrador(models.Model):
     Direccion = models.CharField(max_length=45)
     FechaRegistro = models.DateField(auto_now_add=True, null=True)
     Estado = models.BooleanField(null=True, default=True)
+
+
 
     def __str__(self):
         return self.Nombres

@@ -5,10 +5,14 @@ from django.contrib.auth.views import LoginView, LogoutView
 from VeteSoft.models import *
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .Formulario import *
+from django.shortcuts import render, redirect
+from django.urls import reverse
+from django.contrib.auth.decorators import login_required, permission_required
 
 
 def Inicio(request):
     return render(request,"VeteSoft/Administrador.html")
+
 
 class MedicoVer(ListView):
     model = Medico 
@@ -80,3 +84,13 @@ class ListaMascotas(View):
 
     def post(self, request):
         pass
+
+@login_required
+def home (request):
+    user = request.user
+    if user.has_perm('VeteSoft.is_usuario'):
+        return redirect(reverse('IndexUsuarios'))
+
+@permission_required('VeteSoft.is_usuario')
+def Index_Usuario (request):
+    return render (request, template_name='VeteSoft/indexUsuario.html')
