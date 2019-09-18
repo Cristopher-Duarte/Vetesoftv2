@@ -10,7 +10,9 @@ from django.template.loader import get_template
 from .utils import render_to_pdf #created in step 4
 
 class GeneratePDF(View):
-    def get(self, request, *args, **kwargs):
+    def get(self, request, pk):
+        m = Mascotas.objects.get(id=pk)
+
         template = get_template('invoice.html')
         medicos  = Medico.objects.all()[0]
         citas    = Citas.objects.all()[0]
@@ -24,7 +26,7 @@ class GeneratePDF(View):
         #print(data)
 
         context = {
-            'nombre' : mascota.Nombre,
+            'nombre' : m.Nombre,
             'fechacita' : citas.FechaCita,
             'horacita' : citas.HoraCita,
             'tipoexamen': examenes.Examen,

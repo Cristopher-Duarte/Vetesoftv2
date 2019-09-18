@@ -41,6 +41,6 @@ urlpatterns =[
 
 
     #URl pdf
-    path('pdf/',login_required(GeneratePDF.as_view()),name="pdf"),
+    path('pdf/<int:pk>',login_required(GeneratePDF.as_view()),name="pdf"),
 ]
 
