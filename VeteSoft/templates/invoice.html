@@ -4,13 +4,13 @@
         <style type="text/css">
             body {
                 font-weight: 200;
-                font-size: 14px;
+                font-size: 16px;
             }
             .header {
                 font-size: 20px;
                 font-weight: 100;
                 text-align: center;
-                color: #007cae;
+                font-family: Georgia, 'Times New Roman', Times, serif;
             }
             .title {
                 font-size: 22px;
@@ -42,18 +42,15 @@
     <body>
         <div class='wrapper'>
             <div class='header'>
-                <p class='title'>Historia Clinica de: {{ nombres }} </p>
+                <p class='title'>Historia Clinica de: {{ nombre }} </p>
             </div>
         <div>
         <div class='details' id="cosa">
-            Nombres: {{ nombres }} <br/>
-            Primer Apellido : {{ primerapellido }} <br/>
-            Segundo Apellido: {{ segundoapellido }} <br/>
-            Fecha de Nacimiento: {{ fechanacimiento }} <br/>
-            Genero: {{ genero }} <br/>
-            Celular: {{ celular }} <br/>
-            Direccion: {{ direccion }} <br/>
-            Fecha de Registro: {{ fecharegistro }} <br/>
+           <Strong>Fecha de la Cita:</Strong> {{ fechacita }} <br/>
+            <strong>Hora de la Cita:</strong> {{ horacita }} <br/>
+            <Strong>Examen:</Strong> {{ tipoexamen }} <br/>
+            <strong>Observacion:</strong> {{ observacion }} <br/>
+            <strong>Resultado:</strong> {{ resultado }} <br/>
            
             <hr class='hrItem' />
             

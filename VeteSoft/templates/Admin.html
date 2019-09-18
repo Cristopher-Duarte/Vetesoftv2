@@ -1,10 +1,10 @@
 {% extends 'Plantilla.html' %}
 
 {% block Botones %}
-    <a href="{% url 'ListaMedico' %}"><p><button  class="boton btn" >Mostrar Medicos</button></p></a>
-    <p><button class="boton btn" ><a href="{% url 'ListaCLiente' %}">Mostrar Clientes</a></button></p>
-    <p><button class="boton btn" ><a href="{% url 'ListMascotas' %}">Mostrar Mascotas</a></button></p>
-    <p><button class="boton btn" ><a href="{% url 'RegistroCitas' %}">Apartar Citas</a></button></p>
+    <p><a href="{% url 'ListaMedico' %}"><button  class="boton btn" >Mostrar Medicos</button></a></p>
+    <p><a href="{% url 'ListaCLiente' %}"><button class="boton btn" >Mostrar Clientes</button></a></p>
+    <p><a href="{% url 'ListMascotas' %}" ><button class="boton btn">Mostrar Mascotas</button></a></p>
+    <p><a href="{% url 'RegistroCitas' %}" ><button class="boton btn" >Apartar Citas</button></a></p>
 
 {% endblock %}
 

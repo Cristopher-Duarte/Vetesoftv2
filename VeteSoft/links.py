@@ -1,5 +1,6 @@
 from django.urls import path
 from VeteSoft.views import *
+from VeteSoft.pdf import *
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.views.generic.list import ListView
