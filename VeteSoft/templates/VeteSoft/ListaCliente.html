@@ -27,36 +27,29 @@
     </tr>
     {% for cliente in object_list %}
     <tr>
-        <td>
-            {{ cliente.Documento }}
-        </td>
-        <td>
-            {{ cliente.Nombres }}
-        </td>
-        <td>
-            {{ cliente.PrimerApellido }}
-        </td>
-        <td>
-            {{ cliente.FechaRegistro }}
-        </td>
-        <td>
-            {{ cliente.Genero }}
-        </td>
-        <td>
-            {{ cliente.FechaNacimiento }}
-        </td>
+        <td>{{ cliente.Documento }}</td>
+
+        <td>{{ cliente.Nombres }}</td>
+
+        <td>{{ cliente.PrimerApellido }}</td>
+
+        <td>{{ cliente.FechaRegistro }}</td>
+
+        <td>{{ cliente.Genero }}</td>
+
+        <td>{{ cliente.FechaNacimiento }}</td>
 
         <td>
 
-            <button class="btn" ><a href="{% url 'RegistroMascotas' cliente.pk %} "> Agregar Mascotas</a></button>
+            <button class="btn" ><a href="{% url 'RegistroMascotas' cliente.pk %} " style="text-decoration: none"> Agregar </a></button>
         </td>
 
         <td>
-            <a href="#">Editar</a>
+            <button class="btn"><a href="#" style="text-decoration: none">Editar</a></button>
             
         </td>
         <td>
-            <a href="#">Borrar</a>
+            <button class="btn"><a href="#" style="text-decoration: none">Borrar</a></button>
         </td>
         
     </tr>

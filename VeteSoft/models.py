@@ -85,10 +85,10 @@ class Medicamento(models.Model):
         return self.Nombre
 
 class Examen(models.Model):
-    Nombre = models.CharField(max_length=45)
+    TipoExamen = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.Nombre
+        return self.TipoExamen
 
 class CentroVeterinario(models.Model):
     Nombre = models.CharField(max_length=45)
@@ -125,13 +125,14 @@ class Citas(models.Model):
     Mascotas = models.ForeignKey('Mascotas', on_delete=models.CASCADE)
     Estado = models.BooleanField(null=True, default=True)
 
-
+    def __str__(self):
+        return '%s %s' % (self.FechaCita, self.HoraCita) 
 
 class ExamenMascota(models.Model):
     Examen = models.ForeignKey('Examen', on_delete=models.CASCADE)
 
 class DetalleCita(models.Model):
-    Observacion = models.CharField(max_length=50)
+    Observacion = models.CharField(max_length=500)
     Citas = models.ForeignKey('Citas', on_delete=models.CASCADE)
     Medicamento = models.ForeignKey('Medicamento', on_delete=models.CASCADE)
     ExamenMascota = models.ForeignKey('ExamenMascota', on_delete=models.CASCADE)
