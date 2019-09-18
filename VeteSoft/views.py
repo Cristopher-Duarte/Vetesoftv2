@@ -122,8 +122,21 @@ def home (request):
     user = request.user
     if user.has_perm('VeteSoft.is_usuario'):
         return redirect(reverse('IndexUsuarios'))
+    elif user.has_perm('VeteSoft.is_admin'):
+        return redirect(reverse('IndexAdmin'))
+    elif user.has_perm('VeteSoft.is_doctor'):
+        return redirect('IndexDoctor')
     
 
 @permission_required('VeteSoft.is_usuario')
 def Index_Usuario (request):
     return render (request, template_name='VeteSoft/indexUsuario.html')
+
+@permission_required('VeteSoft.is_admin')
+def Index_Admin(request):
+    return render (request, template_name='VeteSoft/indexAdmin.html')
+
+@permission_required('VeteSoft.is_doctor')
+def Index_Doctor (request):
+    return render(request, template_name='VeteSoft/indexDoctor.html')
+    

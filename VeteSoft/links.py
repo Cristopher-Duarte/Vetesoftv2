@@ -19,16 +19,19 @@ urlpatterns =[
     path('Inicio',login_required(Inicio), name="incio"),
     path('',LoginView.as_view(template_name='accounts/login.html'),name='login'),
     path('LogoutSesion/',login_required(LogoutView.as_view(template_name='accounts/logout.html')),name='logout'),
-    path('MedicosList/',login_required(MedicoVer.as_view()),name='ListaMedico'),
-    path('RegistroMedico/',login_required(RegistroMedico.as_view()), name='RegistroMedico'),
-    path('RegistroCliente/',login_required(RegistroCliente.as_view()), name='RegistroCliente'),
-    path('RegistroCitas/', login_required(RegistroCitas.as_view()), name="RegistroCitas"),
-    path('RegistroMascotas/<int:pk>', login_required(RegistroMascotas.as_view()), name="RegistroMascotas"),
-    path('Medico/eliminar/Medico/<int:pk>',login_required(MedicoDelet.as_view()),name='EliminarMedico'),
-    path('Medico/editar/Medico/<int:pk>',login_required(MedicoActua.as_view()),name='ActualizarMedico'),
-    path('ListaCLiente/',login_required(ClienteList.as_view()),name='ListaCLiente'),
+    path('Admin/MedicosList/',login_required(MedicoVer.as_view()),name='ListaMedico'),
+    path('Admin/RegistroMedico/',login_required(RegistroMedico.as_view()), name='RegistroMedico'),
+    path('Admin/RegistroCliente/',login_required(RegistroCliente.as_view()), name='RegistroCliente'),
+    path('Admin/RegistroCitas/', login_required(RegistroCitas.as_view()), name="RegistroCitas"),
+    path('Admin/RegistroMascotas/<int:pk>', login_required(RegistroMascotas.as_view()), name="RegistroMascotas"),
+    path('Admin/Medico/eliminar/Medico/<int:pk>',login_required(MedicoDelet.as_view()),name='EliminarMedico'),
+    path('Admin/Medico/editar/Medico/<int:pk>',login_required(MedicoActua.as_view()),name='ActualizarMedico'),
+    path('Admin/ListaCLiente/',login_required(ClienteList.as_view()),name='ListaCLiente'),
     path('Home/Users',login_required(home),name='Home'),
     path('User/Index/',login_required(Index_Usuario),name='IndexUsuarios'),
+    path('Admin/Index/',login_required(Index_Admin),name='IndexAdmin'),
+    path('Doc/Index/',login_required(Index_Doctor),name='IndexDoctor'),
+
 
 
 
