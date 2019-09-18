@@ -1,3 +1,4 @@
+#no borrar
 from django.shortcuts import render
 from django.views.generic import *
 from django.urls import reverse_lazy
@@ -97,7 +98,7 @@ class ListaMascotas(View):
 
 
         
-
+#Login
 
 @login_required
 def home (request):
