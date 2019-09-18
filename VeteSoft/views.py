@@ -61,10 +61,7 @@ class ClienteList(ListView):
     model = Cliente 
     template_name = 'VeteSoft/ListaCliente.html'
 
-class RegistroCitas(CreateView):
-    model=Citas
-    form_class=RegistroCitaForm
-    template_name ='VeteSoft/RegistroCitas.html'
+
 
 class RegistroMascotas(View):
     
@@ -130,13 +127,13 @@ def home (request):
 
 @permission_required('VeteSoft.is_usuario')
 def Index_Usuario (request):
-    return render (request, template_name='VeteSoft/Administrador.html')
+    return render (request, template_name='VeteSoft/indexAdmin.html')
 
 @permission_required('VeteSoft.is_admin')
 def Index_Admin(request):
-    return render (request, template_name='VeteSoft/Administrador.html')
+    return render (request, template_name='VeteSoft/indexAdmin.html')
 
 @permission_required('VeteSoft.is_doctor')
 def Index_Doctor (request):
-    return render(request, template_name='VeteSoft/Administrador.html')
+    return render(request, template_name='VeteSoft/indexAdmin.html')
     
