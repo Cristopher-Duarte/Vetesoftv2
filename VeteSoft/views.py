@@ -114,6 +114,24 @@ class GeneratePDF(View):
         pdf = render_to_pdf('invoice.html', context)
         return HttpResponse(pdf, content_type='application/pdf')
         
+
+
+class RegistroCitas(View):
+    def get(self, request,pk):
+        
+        form2 = RegistroCitaForm
+        return render(request, 'VeteSoft/RegistroCitas.html', {'form': form2})
+
+    def post(self, request, pk):
+        mascota = Mascotas.objects.get(id=pk)
+        form1 = RegistroCitaForm(request.POST)
+        if form1.is_valid():
+            llenar = form1.save(commit=False)
+            llenar.Mascotas = mascota
+            llenar.save()
+            return redirect(reverse('ListMascotas'))
+
+
 @login_required
 def home (request):
     user = request.user
