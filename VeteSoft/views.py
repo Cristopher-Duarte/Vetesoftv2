@@ -208,6 +208,19 @@ class RegistroDatelle(View):
             return redirect(reverse('ListaCitas'))
 
 
+class ListaDetalle(View):
+    model= DetalleCita
+    template_name='VeteSoft/DetalleCita.html'
+
+
+
+
+class DetalleCitaEliminar(DeleteView):
+    model = Cliente
+    template_name = 'VeteSoft/EliminarDetalle.html'
+    success_url = reverse_lazy('EliminarClientes')
+
+
 @login_required
 def home (request):
     user = request.user

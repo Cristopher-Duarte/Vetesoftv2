@@ -15,5 +15,38 @@
         <button type="submit" class="boton btn">Enviar</button> 
     </form>
 
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-dark">
+                <tr>
+                    <th>Examen</th>
+            
+                    <th>Observacion</th>
+
+                    <th>Medicamento</th>
+                      
+                </tr>
+                {% for Mascotas in object_list %}
+                
+                <tr>
+                    <td>{{ Mascotas.ExamenMascota }}</td>
+                    <td>{{ Mascotas.Observacion }}</td>
+            
+                    <td>{{ Mascotas.Medicamento }}</td>
+            
+              
+            
+        
+                    <td><button class="btn" ><a href="{% url 'DetalleCitaEliminar' Mascotas.pk %}"> Retirar</a></td>
+        
+                    
+                </tr>
+            
+                {% endfor%}
+            
+            </table>
+        </div>
+    </div>
+
 
 {% endblock %}

@@ -43,6 +43,7 @@ urlpatterns =[
     path('Users/RegistroCitas/<int:pk>', login_required(RegistroCitasUser.as_view()), name="RegistroCitasUser"),
     path('Admin/Cliente/eliminar/Cliente/<int:pk>',login_required(ClienteDelet.as_view()),name='EliminarClientes'),
     path('Admin/Cliente/editar/Cliente/<int:pk>',login_required(ClienteActua.as_view()),name='ActualizarCliente'),
+    path('Medico/Eliminar<int:pk>',login_required(DetalleCitaEliminar.as_view()),name='DetalleCitaEliminar'),
     #URl pdf 
     path('pdf/<int:pk>',login_required(GeneratePDF.as_view()),name="pdf"),
 ]
