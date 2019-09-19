@@ -151,13 +151,12 @@ class RegistroMascotasUsers(View):
         return render(request, 'VeteSoft/RegistroMascotasUsers.html', {'form': form2})
 
     def post(self, request):
-        usuario= user.username
-        cliente = Cliente.objects.get(username=usuario)
+        usuario = request.user.username
+        use = Cliente.objects.get(Nombres=usuario)
         form1 = RegistroMascotasForm(request.POST)
-        datosM = Mascotas.objects.all()
         if form1.is_valid():
             llenar = form1.save(commit=False)
-            llenar.Cliente = cliente
+            llenar.Cliente = use
             llenar.save()
             return redirect(reverse('ListaMascotasUsers'))
         
