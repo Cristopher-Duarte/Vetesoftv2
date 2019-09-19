@@ -34,7 +34,7 @@ class MedicoDelet(DeleteView):
 class ClienteDelet(DeleteView):
     model = Cliente
     template_name = 'VeteSoft/EliminarCliente.html'
-    success_url = reverse_lazy('EliminarClientes')
+    success_url = reverse_lazy('ListaCLiente')
 
 class MedicoActua(UpdateView):
     model = Medico

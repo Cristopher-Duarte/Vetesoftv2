@@ -13,11 +13,11 @@ class GeneratePDF(View):
     def get(self, request, pk):
         m = Mascotas.objects.get(id=pk)
         d = Cliente.objects.get(id=pk)
-        # md = Medico.objects.get(id=pk)
-        # c = Citas.objects.get(id=pk)
-        # exm = ExamenMascota.objects.get(id=pk)
-        # dc = DetalleCita.objects.get(id=pk)
-        # rc = ResultadoClinico.objects.get(id=pk)
+        md = Medico.objects.get(id=pk)
+        c = Citas.objects.get(id=pk)
+        exm = ExamenMascota.objects.get(id=pk)
+        dc = DetalleCita.objects.get(id=pk)
+        rc = ResultadoClinico.objects.get(id=pk)
         rz = Raza.objects.get(id=pk)
 
         template = get_template('invoice.html')
@@ -35,7 +35,7 @@ class GeneratePDF(View):
         #print(data)
 
         context = {
-            'dueño' : cliente.Nombres,
+            'dueño' : d.Nombres,
             'nombre' : m.Nombre,
             'raza' : rz.nombre,
             'fechacita' : citas.FechaCita,
