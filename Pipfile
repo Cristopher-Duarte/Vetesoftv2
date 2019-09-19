@@ -13,6 +13,7 @@ mysql = "*"
 pymysql = "*"
 djanf = "*"
 xhtml2pdf = "*"
+xhtml12pdf = "*"
 
 [requires]
 python_version = "3.7"

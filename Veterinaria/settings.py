@@ -82,14 +82,14 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME':'petsoft',
         'USER': 'root',
-        'PASSWORD': '1005012521',
+        'PASSWORD': 'cbn2016',
         'HOST': 'localhost',
     
     }
 }
 
 
-# Password validation
+# Password
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
