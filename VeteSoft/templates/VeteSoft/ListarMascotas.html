@@ -25,6 +25,7 @@
         <th>
             Citas
         </th>
+        <th>Historia Clinica</th>
     </tr>
     {% for dataMas in infomas %}
     <tr>
@@ -45,7 +46,10 @@
         </td>
 
         <td>
-            <button class="btn" ><a href="{% url 'RegistroCitas' dataMas.pk %}"> Apartar</a></button>
+            <a href="{% url 'RegistroCitas' dataMas.pk %}"><button class="btn">Apartar</button></a>
+        </td>
+        <td>
+            <a href="{% url 'pdf' dataMas.pk %}"><button class="btn">Ver historia clinica</button></a>
         </td>
 
 
