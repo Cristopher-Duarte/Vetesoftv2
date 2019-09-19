@@ -1,19 +1,12 @@
-{% extends 'Admin.html' %}
+{% extends 'Clientes.html' %}
 
 {% block Formularios %}
-    <form action="#" method="POST">
+
+<form action="#" method="POST">
 
         {% csrf_token %}
-            
-            
         {{ form.as_p }}
-        
-    
-
-
-        
         <button type="submit" class="boton btn">Enviar</button> 
+
     </form>
-
-
 {% endblock %}

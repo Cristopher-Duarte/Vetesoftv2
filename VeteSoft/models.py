@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.translation import ugettext as _
-
+from django.contrib.auth.models import User
 class Raza(models.Model):
     nombre = models.CharField(max_length=45)
 
@@ -20,7 +20,6 @@ class GeneroMascota(models.Model):
     def __str__(self):
         return self.Tipo
 
-
 class Cliente(models.Model):
     Documento = models.CharField(max_length=45)
     Nombres = models.CharField(max_length=45)
@@ -32,6 +31,7 @@ class Cliente(models.Model):
     Direccion = models.CharField(max_length=45)
     FechaRegistro = models.DateField(auto_now_add=True, null=True)
     Estado = models.BooleanField(null=True, default=True)
+
 
     def __str__(self):
         return self.Nombres
@@ -47,6 +47,7 @@ class Medico(models.Model):
     Direccion = models.CharField(max_length=45)
     FechaRegistro = models.DateField(auto_now_add=True, null=True)
     Estado = models.BooleanField(null=True, default=True)
+   
         
     class Meta:
 
@@ -75,6 +76,7 @@ class Administrador(models.Model):
 
 
 
+
     def __str__(self):
         return self.Nombres
 
@@ -84,11 +86,8 @@ class Medicamento(models.Model):
     def __str__(self):
         return self.Nombre
 
-class Examen(models.Model):
-    TipoExamen = models.CharField(max_length=50)
 
-    def __str__(self):
-        return self.TipoExamen
+
 
 class CentroVeterinario(models.Model):
     Nombre = models.CharField(max_length=45)
@@ -129,13 +128,16 @@ class Citas(models.Model):
         return '%s %s' % (self.FechaCita, self.HoraCita) 
 
 class ExamenMascota(models.Model):
-    Examen = models.ForeignKey('Examen', on_delete=models.CASCADE)
+    TipoExamen = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.TipoExamen
 
 class DetalleCita(models.Model):
     Observacion = models.CharField(max_length=500)
     Citas = models.ForeignKey('Citas', on_delete=models.CASCADE)
-    Medicamento = models.ForeignKey('Medicamento', on_delete=models.CASCADE)
-    ExamenMascota = models.ForeignKey('ExamenMascota', on_delete=models.CASCADE)
+    Medicamento = models.ForeignKey('Medicamento', on_delete=models.CASCADE, null = True)
+    ExamenMascota = models.ForeignKey('ExamenMascota', on_delete=models.CASCADE, null = True)
 
 class ResultadoClinico(models.Model):
     Resultado = models.CharField(max_length=45)

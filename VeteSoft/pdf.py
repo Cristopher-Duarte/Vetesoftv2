@@ -12,7 +12,7 @@ from .utils import render_to_pdf #created in step 4
 class GeneratePDF(View):
     def get(self, request, pk):
         m = Mascotas.objects.get(id=pk)
-
+        
         template = get_template('invoice.html')
         medicos  = Medico.objects.all()[0]
         citas    = Citas.objects.all()[0]

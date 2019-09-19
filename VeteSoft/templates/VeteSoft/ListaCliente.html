@@ -45,11 +45,11 @@
         </td>
 
         <td>
-            <button class="btn"><a href="#" style="text-decoration: none">Editar</a></button>
+            <button class="btn"><a href="{% url 'ActualizarCliente' cliente.id %}" style="text-decoration: none">Editar</a></button>
             
         </td>
         <td>
-            <button class="btn"><a href="#" style="text-decoration: none">Borrar</a></button>
+            <button class="btn"><a href="{% url 'EliminarClientes' cliente.id %}" style="text-decoration: none">Borrar</a></button>
         </td>
         
     </tr>

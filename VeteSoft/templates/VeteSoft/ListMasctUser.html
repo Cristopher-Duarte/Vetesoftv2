@@ -1,4 +1,4 @@
-{% extends 'Admin.html' %}
+{% extends 'Clientes.html' %}
 
 {% block Formularios %}
 
@@ -28,6 +28,7 @@
     </tr>
     {% for dataMas in infomas %}
     <tr>
+        {% if dataMas.Cliente.Nombres == user.username %}
         <td>
             {{ dataMas.Nombre }}
         </td>
@@ -43,17 +44,18 @@
         <td>
             {{ dataMas.Raza }}
         </td>
+        
 
         <td>
-            <button class="btn" ><a href="{% url 'RegistroCitas' dataMas.pk %} "> Apartar</a></button>
+            <button class="btn" ><a href="{% url 'RegistroCitasUser' dataMas.pk %} "> Apartar</a></button>
         </td>
-
+        {% endif %}
 
         
     </tr>
     {% endfor%}
 
 </table>
-
+<p><a href="{% url 'RegistroMascotasUsers' %}" class="boton btn" >Agregar nuevo Mascota</a></p>
 
 {% endblock %}

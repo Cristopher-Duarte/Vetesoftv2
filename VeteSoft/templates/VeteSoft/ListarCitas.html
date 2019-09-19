@@ -1,0 +1,50 @@
+{% extends 'Medico.html' %}
+
+{% block Formularios %}
+
+<h2>
+    Listados de Citas
+</h2>
+<table class="table table-dark">
+        <tr>
+            <th>Paciente</th>
+    
+            <th>Responsable</th>
+    
+            <th>Hora</th>
+
+    
+            <th>Raza</th>
+
+            <th>Atender</th>
+    
+    
+        </tr>
+        {% for Mascotas in infomas %}
+        {% if Mascotas.Medico.Nombres == user.username and Mascotas.Estado == True %}
+        <tr>
+            <td>{{ Mascotas.Mascotas }}</td>
+            <td>{{ Mascotas.Mascotas.Cliente.Nombres }}</td>
+    
+            <td>{{ Mascotas.HoraCita }}</td>
+    
+      
+    
+            <td>{{ Mascotas.Mascotas.Raza }}</td>
+
+            <td><button class="btn" ><a href="{% url 'RegistroDatelle' Mascotas.pk %}"> Aceptar</a>
+            </button><button class="btn" ><a href="{% url 'pdf' Mascotas.Mascotas.pk %}"> Finalizar</a></button></td>
+
+            
+        </tr>
+        {% endif %}
+        {% endfor%}
+    
+    </table>
+
+    
+    </div>  
+
+
+
+{% endblock %}

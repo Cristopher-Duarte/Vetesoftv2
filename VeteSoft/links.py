@@ -35,12 +35,15 @@ urlpatterns =[
 
 
 
-
-
+    path('Medico/ListaCitas/',login_required(ListaCitas.as_view()),name='ListaCitas'), 
+    path('Medico/RegistroDetalle/<int:pk>',login_required(RegistroDatelle.as_view()),name='RegistroDatelle'),  
+    path('User/RegistroMascotas/', login_required(RegistroMascotasUsers.as_view()), name="RegistroMascotasUsers"),
     path('ListMascota/',login_required(ListaMascotas.as_view()),name='ListMascotas'),
-
-
-    #URl pdf
+    path('Users/ListMascota/',login_required(ListaMascotasUsers.as_view()),name='ListaMascotasUsers'),
+    path('Users/RegistroCitas/<int:pk>', login_required(RegistroCitasUser.as_view()), name="RegistroCitasUser"),
+    path('Admin/Cliente/eliminar/Cliente/<int:pk>',login_required(ClienteDelet.as_view()),name='EliminarClientes'),
+    path('Admin/Cliente/editar/Cliente/<int:pk>',login_required(ClienteActua.as_view()),name='ActualizarCliente'),
+    #URl pdf 
     path('pdf/<int:pk>',login_required(GeneratePDF.as_view()),name="pdf"),
 ]
 

@@ -173,7 +173,6 @@ class RegistroCitaForm(forms.ModelForm):
         }
 
 
-
 class RegistroMascotasForm(forms.ModelForm):
     class Meta:
 
@@ -199,6 +198,32 @@ class RegistroMascotasForm(forms.ModelForm):
             'FechaNacimiento'   : forms.TextInput(attrs={'class':'form-control'}), 
             'GeneroMascota'     : forms.Select(attrs={'class':'form-control'}), 
             'Raza'              : forms.Select(attrs={'class':'form-control'}), 
+           
+        }
+
+
+class RegistroDetalle(forms.ModelForm):
+    class Meta:
+
+        model=DetalleCita
+        fields=[
+            'Observacion',
+            'Medicamento',
+            'ExamenMascota',
+        ]
+
+        labels={
+            'Observacion'       :    'Observacion',
+            'Medicamento'       :    'Medicamento',
+            'ExamenMascota'     :    'Examenes'    ,
+   
+        }
+        
+        
+        widgets={
+            'Observacion'       : forms.TextInput(attrs={'class':'form-control'}),        
+            'Medicamento'       : forms.Select(attrs={'class':'form-control', 'required': False}), 
+            'ExamenMascota'     : forms.Select(attrs={'class':'form-control', 'required': False}), 
            
         }
 
