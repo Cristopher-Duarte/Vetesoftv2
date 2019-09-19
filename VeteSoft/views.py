@@ -9,7 +9,7 @@ from .Formulario import *
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required, permission_required
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Permission
 from django.http import HttpResponse
 from django.views.generic import View
 
@@ -63,8 +63,8 @@ class RegistroMedico(CreateView):
         email=""
         passs=str(nombre)+"col"
         usermedico=User.objects.create_user(nombre,email,passs)
-
-        usermedico.user_permissions.add(79)
+        permiso= Permission.objects.get(name='Is Doctor')
+        usermedico.user_permissions.add(permiso)
         usermedico.save()
         form2.save()
         return redirect(reverse('ListaMedico'))
@@ -84,9 +84,10 @@ class RegistroCliente(View):
         nombre=request.POST.get('Nombres')
         email=""
         passs=str(nombre)+"col"
-        usermedico=User.objects.create_user(nombre,email,passs)
-        usermedico.user_permissions.add(77)
-        usermedico.save()
+        userCliente=User.objects.create_user(nombre,email,passs)
+        permiso= Permission.objects.get(name='Is Usuario')
+        userCliente.user_permissions.add(permiso)
+        userCliente.save()
         form2.save()
         return redirect(reverse('ListaCLiente'))
 
@@ -150,13 +151,12 @@ class RegistroMascotasUsers(View):
         return render(request, 'VeteSoft/RegistroMascotasUsers.html', {'form': form2})
 
     def post(self, request):
-        usuario= user.username
-        cliente = Cliente.objects.get(username=usuario)
+        usuario = request.user.username
+        use = Cliente.objects.get(Nombres=usuario)
         form1 = RegistroMascotasForm(request.POST)
-        datosM = Mascotas.objects.all()
         if form1.is_valid():
             llenar = form1.save(commit=False)
-            llenar.Cliente = cliente
+            llenar.Cliente = use
             llenar.save()
             return redirect(reverse('ListaMascotasUsers'))
         

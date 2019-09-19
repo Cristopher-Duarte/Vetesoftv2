@@ -181,7 +181,6 @@ class RegistroMascotasForm(forms.ModelForm):
             'Nombre',
             'FechaNacimiento',
             'GeneroMascota',
-
             'Raza',
         ]
 
